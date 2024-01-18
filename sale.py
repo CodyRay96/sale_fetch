@@ -69,14 +69,11 @@ excel_button = driver.find_element(By.XPATH, "//button[@class='btn btn-primary b
 excel_button.click()
 
 
-# Now, you might need to wait for the page to update before interacting with the next element
-# Example: Wait for the presence of an element on the next page (adjust as needed)
+# Now, wait for the page to update before interacting with the next element
 element_on_excel_page = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.XPATH, "//div[@class='your-element-class-on-excel-page']"))
 )
 
-# Continue with the rest of your actions on the next page
-# ...
 
-# Don't forget to close the browser when done
+# close the browser when done
 driver.quit()
