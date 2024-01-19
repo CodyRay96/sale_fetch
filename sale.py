@@ -22,6 +22,7 @@ def read_config(file_path):
         config = json.load(file)
     return config
 
+
 # Navigate to the login page
 driver.get('server')
 
