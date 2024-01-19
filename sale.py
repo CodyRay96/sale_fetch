@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import json
 
 # Specify the download directory
 download_directory = "C:\\Users\\Cody9\\development\\sale_fetch"
@@ -15,15 +16,27 @@ chrome_options.add_experimental_option("prefs", prefs)
 # Set up Chrome WebDriver with options
 driver = webdriver.Chrome(options=chrome_options)
 
+#read config folder for sensitive info
+def read_config(file_path):
+    with open(file_path, 'r') as file:
+        config = json.load(file)
+    return config
+
 # Navigate to the login page
-driver.get('http://172.16.0.14/2021A/login.php')
+driver.get('server')
 
 # Fill in login credentials and submit the form
 username = driver.find_element(By.NAME, 'username')
 password = driver.find_element(By.NAME, 'password')
 
-username.send_keys('cody96bear@yahoo.com')
-password.send_keys('Codyray@HP2023')
+
+
+# Updated usage example with the correct file path:
+config_data = read_config('C:\\Users\\Cody9\\development\\sale_fetch\\config.json')
+
+
+username.send_keys('username')
+password.send_keys('password')
 
 password.send_keys(Keys.RETURN)
 
